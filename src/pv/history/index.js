@@ -1,4 +1,4 @@
-export default function (oldURL) {
+export default function (oldURL, name) {
     let old = oldURL;
     //进行history.pushState的监控
     let wrapperHistory = function (type) {
@@ -18,13 +18,13 @@ export default function (oldURL) {
     window.addEventListener('replaceState', function (e) {
         let _url = e.arguments.length - 1
         let newURL = e.arguments[_url]
-        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL})
+        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
         old = newURL
     })
     window.addEventListener('pushState', function (e) {
         let _url = e.arguments.length - 1
         let newURL = e.arguments[_url]
-        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL})
+        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
         old = newURL
     })
 }

@@ -1,4 +1,4 @@
-export default function (timing) {
+export default function (timing, name) {
     let data;
     data = {
         //白屏时间
@@ -11,7 +11,8 @@ export default function (timing) {
         sourceLoad: timing.domComplete - timing.navigationStart,
         //dom树构建时间
         domTreeCons: timing.domInteractive - timing.domLoading,
-        url: window.location.href
+        url: window.location.href,
+        name: name
     }
     $hideAjax('http://localhost:3010/pagetarget', 'POST', data)
 }

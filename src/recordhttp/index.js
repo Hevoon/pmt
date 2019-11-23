@@ -1,6 +1,6 @@
 import handleHttpResult from './handleHttpResult'
 
-export default function () {
+export default function (name) {
     //创建一个事件
     function ajaxTrigger(eventName) {
         let ajaxEvent = new CustomEvent(eventName, {detail: this})
@@ -57,17 +57,17 @@ export default function () {
                         let reader = new FileReader();
                         reader.onload = function () {
                             let responseText = reader.result;//内容就在这里
-                            handleHttpResult(responseText, e, temRecordElement);
+                            handleHttpResult(responseText, e, temRecordElement, name);
                         }
                         try {
                             reader.readAsText(e.detail.response, 'utf-8');
                         } catch (e) {
-                            handleHttpResult(e.detail.response, e, temRecordElement);
+                            handleHttpResult(e.detail.response, e, temRecordElement, name);
                         }
                     })();
                 } else {
                     let responseText = e.detail.responseText
-                    handleHttpResult(responseText, e, temRecordElement)
+                    handleHttpResult(responseText, e, temRecordElement, name)
                 }
             }
         }

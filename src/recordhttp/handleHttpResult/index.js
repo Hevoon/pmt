@@ -1,6 +1,6 @@
 import httpLog from '../httpLog'
 
-export default function (temResponseText, event, temRecordElement, oldHXR) {
+export default function (temResponseText, event, temRecordElement, name) {
     if (!temRecordElement && temRecordElement.uploadStamp) {
         return
     }
@@ -19,6 +19,6 @@ export default function (temResponseText, event, temRecordElement, oldHXR) {
     if (!httpApi) {
         return
     }
-    let data = httpLog(url, httpApi, status, statusText, responseText, temRecordElement.timeStart, currentTime, loadTime)
+    let data = httpLog(url, httpApi, status, statusText, responseText, temRecordElement.timeStart, currentTime, loadTime, name)
     $hideAjax("http://localhost:3010/httpmonitor", "POST", data)
 }
