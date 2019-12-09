@@ -16,23 +16,23 @@ export default function (name, isVue) {
                 isVue: true,
                 name: name
             }
-            $hideAjax("http://localhost:3010/errormonitor", "POST", data)
+            $hideAjax("/errormonitor", "POST", data)
         }
     } else {
         console.log('Vue is not found')
     }
     //promise未写catch而抛出的错误
-    window.addEventListener("unhandledrejection", function (e) {
-        let message = e.reason
-        let type = e.type
-        let data = {
-            message: message,
-            type: type,
-            isVue: false,
-            name: name
-        }
-        $hideAjax("http://localhost:3010/errormonitor", "POST", data)
-    })
+    // window.addEventListener("unhandledrejection", function (e) {
+    //     let message = e.reason
+    //     let type = e.type
+    //     let data = {
+    //         message: message,
+    //         type: type,
+    //         isVue: false,
+    //         name: name
+    //     }
+    //     $hideAjax("/errormonitor", "POST", data)
+    // })
     //监控js的运行时错误
     window.onerror = function (message, source, lineno, colon, error) {
         let type = error.name
@@ -45,6 +45,6 @@ export default function (name, isVue) {
             isVue: false,
             name: name
         }
-        $hideAjax("http://localhost:3010/errormonitor", "POST", data)
+        $hideAjax("/errormonitor", "POST", data)
     }
 }

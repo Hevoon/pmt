@@ -7,7 +7,7 @@ export default function (perf, name) {
                 duration: e.duration,
                 name: name
             }
-            $hideAjax('http://localhost:3010/resourcemonitor', 'POST', data)
+            $hideAjax('/resourcemonitor', 'POST', data)
         }
     })
 }

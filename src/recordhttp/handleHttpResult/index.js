@@ -20,5 +20,5 @@ export default function (temResponseText, event, temRecordElement, name) {
         return
     }
     let data = httpLog(url, httpApi, status, statusText, responseText, temRecordElement.timeStart, currentTime, loadTime, name)
-    $hideAjax("http://localhost:3010/httpmonitor", "POST", data)
+    $hideAjax("/httpmonitor", "POST", data)
 }

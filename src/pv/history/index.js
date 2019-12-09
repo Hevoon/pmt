@@ -18,13 +18,13 @@ export default function (oldURL, name) {
     window.addEventListener('replaceState', function (e) {
         let _url = e.arguments.length - 1
         let newURL = e.arguments[_url]
-        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
+        $hideAjax("/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
         old = newURL
     })
     window.addEventListener('pushState', function (e) {
         let _url = e.arguments.length - 1
         let newURL = e.arguments[_url]
-        $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
+        $hideAjax("/pv", "POST", {orgUrl: old, targetUrl: newURL, name: name})
         old = newURL
     })
 }

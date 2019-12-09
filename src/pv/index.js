@@ -4,7 +4,7 @@ import _history from './history'
 
 export default function (name) {
     let oldURL = window.location.href
-    $hideAjax("http://localhost:3010/pv", "POST", {orgUrl: oldURL, targetUrl: 'homePage', name: name})
+    $hideAjax("/pv", "POST", {orgUrl: oldURL, targetUrl: 'homePage', name: name})
     //对a标签的监听
     _a(oldURL, name)
     //对hash的监听

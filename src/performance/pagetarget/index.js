@@ -14,5 +14,5 @@ export default function (timing, name) {
         url: window.location.href,
         name: name
     }
-    $hideAjax('http://localhost:3010/pagetarget', 'POST', data)
+    $hideAjax('/pagetarget', 'POST', data)
 }

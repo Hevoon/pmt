@@ -8,9 +8,10 @@ import recordHttp from './src/recordhttp'
 
 //封装后的请求
 window.$ax = ax
-window.$hideAjax = getHideAjax();
 
-export default function (name, isVue = false) {
+
+export default function f(name, isVue = false,url) {
+    window.$hideAjax = getHideAjax(url);
     //错误监控
     errorTell(name, isVue)
     //接口请求监控
@@ -27,4 +28,3 @@ export default function (name, isVue = false) {
         }
     })
 }
-

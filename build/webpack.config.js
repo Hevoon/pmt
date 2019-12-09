@@ -8,7 +8,7 @@ const config = {
     //webpack4需要的mode属性,development||production
     mode: process.env.NODE_ENV || "production",
     target: 'web',
-    entry: path.join(__dirname, '../src/index.js'),
+    entry: path.join(__dirname, '../index.js'),
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, '../dist')
